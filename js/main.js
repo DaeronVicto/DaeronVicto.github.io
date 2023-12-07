@@ -11,13 +11,11 @@ const winningCombos = [
     ];
 
 /*----- app's state (variables) -----*/
-
 let board;
 let turn = 'X';
 let win;
 
 /*----- cached element references -----*/
-
 const squares = Array.from(document.querySelectorAll('#board div'));
 
 /*----- event listeners -----*/
@@ -27,7 +25,6 @@ document.getElementById('reset-button').addEventListener('click', init);
 
 
 /*----- functions -----*/
-
 function getWinner() {
     let winner = null;
     winningCombos.forEach(function(combo, index) {
@@ -43,6 +40,12 @@ function handleTurn() {
     board[idx] = turn;
     turn = turn === 'X' ? 'O' : 'X';
     win = getWinner();
+    if(getWinner() == 'X' || getWinner() == 'O'){ //Si il y a un gagnant fait la fonction bravo sinon tie
+        bravo()
+    }
+    else{
+        tie()
+    }
     render();
 };
 
@@ -52,6 +55,7 @@ function init() {
     '', '', '',
     '', '', ''
     ];
+    handleTurn() //Pour faire en sorte que au debut du match c'est le tour a quelqun et renitialise les couleurs
     render();
 };
 
@@ -60,7 +64,17 @@ function render() {
     //this moves the value of the board item into the squares[idx]
     squares[index].textContent = mark;
     });
-    messages.textContent = win === 'T' ? `That's a tie, queen!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
+    messages.textContent = win === 'T' ? `C'est une egalite!` : win ? `${win} gagne la partie!` : `C'est au tour de ${turn}`;
     };
 
 init();
+var link = document.cre
+
+function bravo(){ //si gagnant
+    document.getElementById("body").classList.add("Mathieu");//Met RGB
+    document.getElementById('footer').classList.remove("Mathieu");//Enleve RGB
+}
+function tie(){ //si egalite ou pas de gagnant determine
+    document.getElementById('body').classList.remove("Mathieu");//Enleve RGB
+    document.getElementById('footer').classList.add("Mathieu");//Met RGB
+}

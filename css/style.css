@@ -2,6 +2,13 @@ body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     }
+    @font-face {
+        font-family: nouveauFont;
+        src: url("/tictactoetwo/font/PTSerif-BoldItalic.ttf");
+    }
+    #board{
+        font-family: "nouveauFont";
+    }
     
     
 h2 {
@@ -53,4 +60,24 @@ h2 {
     height: 55px;
     width: 100px;
     margin: 10px;
+}
+footer{
+    background-color: lightgray;
+    display:flex;
+    justify-content: space-between;
+    padding: 7px;
+}
+img{
+    object-fit: cover;
+    border-radius: 50%;
+    float: right;
+}
+.id1, .id2, .id3{
+    width: 30%;
+}
+.a1, .p1{
+    text-align: left;
+}
+.Mathieu{
+    background-image: url("/tictactoetwo/gradient-colors.gif");
 }
