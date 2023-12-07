@@ -12,7 +12,7 @@ const winningCombos = [
 
 /*----- app's state (variables) -----*/
 let board;
-let turn = 'X';
+let turn = '🐐';
 let win;
 
 /*----- cached element references -----*/
@@ -38,9 +38,9 @@ function handleTurn() {
         return square === event.target;
     });
     board[idx] = turn;
-    turn = turn === 'X' ? 'O' : 'X';
+    turn = turn === '🐐' ? '🍄' : '🐐';
     win = getWinner();
-    if(getWinner() == 'X' || getWinner() == 'O'){ //Si il y a un gagnant fait la fonction bravo sinon tie
+    if(getWinner() == '🐐' || getWinner() == '🍄'){ //Si il y a un gagnant fait la fonction bravo sinon tie
         bravo()
     }
     else{
